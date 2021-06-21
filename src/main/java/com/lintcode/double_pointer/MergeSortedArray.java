@@ -45,15 +45,19 @@ import java.util.Arrays;
 public class MergeSortedArray {
 
     public static void main(String[] args) {
-        int[] nums1 = {1, 2, 3};
-        int[] nums2 = {2, 5, 6};
+        int[] nums1 = {1, 2, 3,0,0,};
+        int[] nums2 = null;
         System.out.println(Arrays.toString(mergeSortedArray(nums1, 3, nums2, 3)));
     }
 
     public static int[] mergeSortedArray(int[] nums1, int m, int[] nums2, int n) {
+
         int length = m + n;
-        if (m <= 0 || n <= 0 || length <= 0) {
-            return null;
+        if(nums1 ==null || m <= 0){
+            return nums2;
+        }
+        if (nums2 ==null ||n <= 0 ) {
+            return nums1;
         }
         int[] sorted = new int[m + n];
         int nums1_pointer = 0;
@@ -71,14 +75,14 @@ public class MergeSortedArray {
             }
         }
         //判断nums1有没有数据
-        if (nums1_pointer < m - 1) {
+        if (nums1_pointer <= m - 1) {
             for (; nums1_pointer <= m - 1; nums1_pointer++) {
                 sorted[sortedIndex] = nums1[nums1_pointer];
                 sortedIndex++;
             }
         }
         //判断nums2有没有数据
-        if (nums2_pointer < n - 1) {
+        if (nums2_pointer <= n - 1) {
             for (; nums2_pointer <= n - 1; nums2_pointer++) {
                 sorted[sortedIndex] = nums2[nums2_pointer];
                 sortedIndex++;
