@@ -19,7 +19,7 @@ package com.lintcode.dp;
  *  定义转移方程
  *  dp[n] = max(nums[n-1]+dp[n-2],dp[n-1])
  *  最后结果
- *  dp[n]
+ *  dp[n-1]
  * @date 2021/7/9 14:06
  */
 public class Rob {
